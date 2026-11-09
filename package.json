@@ -1,0 +1,29 @@
+{
+  "name": "clockout-defense",
+  "version": "0.1.0",
+  "private": true,
+  "description": "칼퇴 디펜스 — 모니터 구석의 시계탑 요새를 지켜 18시 정각에 퇴근하는 도트 서바이벌 디펜스",
+  "main": "./out/main/index.js",
+  "author": "kanchoooo",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "test": "node test/run.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "icon": "node scripts/make-icon.mjs",
+    "dist:mac:local": "electron-vite build && CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --mac --dir --publish never -c.electronDist=node_modules/electron/dist",
+    "dist:mac": "node scripts/build-mac.mjs",
+    "dist:win": "electron-vite build && electron-builder --win --x64 --publish never",
+    "verify:mac": "node scripts/verify-mac.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "typescript": "5.9",
+    "vite": "^7.3.7"
+  }
+}
